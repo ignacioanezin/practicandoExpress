@@ -6,3 +6,24 @@ body {
 a {
   color: #00B7FF;
 }
+
+h1 {
+  color: purple;
+}
+
+.nav {	
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav-item{
+  list-style: none;
+  background-color: black;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+.btn{
+  color: white;
+  text-decoration: none;
+}
