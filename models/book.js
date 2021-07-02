@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     {
         freezeTableName: true,
-        timeStamp: false,
+        timestamps: false
     });
 
     Book.associate = (models) => {
