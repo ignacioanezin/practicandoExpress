@@ -2,7 +2,7 @@
 const db = require('../models')
 
 const getBooks = async () => {
-    const books = await db.book.findAll()
+    const books = await db.book.findAll({include: db.author})
         .then(result => {
             return result;
         });
