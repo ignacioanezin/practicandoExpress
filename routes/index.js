@@ -3,10 +3,16 @@ var router = express.Router();
 const api = require('../api')
 
 /* GET home page. */
-router.get('/', async (req, res) => {
+router.get('/authors', async (req, res) => {
+  const authors = await api.getAuthors();
+  console.log(authors)
+  // res.render('index', { title: 'Express' });
+  res.send(authors);
+});
+
+router.get('/books', async (req, res) => {
   const books = await api.getBooks();
   console.log(books);
-
   // res.render('index', { title: 'Express' });
   res.send(books);
 });

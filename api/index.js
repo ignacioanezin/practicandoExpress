@@ -8,8 +8,18 @@ const getBooks = async () => {
         });
     
     return books;
+};
+
+const getAuthors = async () => {
+    const authors = await db.author.findAll()
+        .then(result => {
+            return result;
+        });
+    
+    return authors;
 }
 
 module.exports = {
+    getAuthors,
     getBooks
 }
