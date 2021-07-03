@@ -30,6 +30,16 @@ router.get('/books/:id', async (req, res) => {
   res.send(`You good!, the ID  you are looking for is ${req.params.id}`);
 })
 
+router.get('/search', async  (req, res) => {
+ const books = await api.findBookByTitle(req.query.query);
+ res.render('index', {
+   title: 'The Search',
+   books
+ });
+
+  // res.send(req.query);
+});
+
 router.get('/contact', (req, res) => {
   res.render('pages/contact');  
 });
