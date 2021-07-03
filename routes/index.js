@@ -40,6 +40,10 @@ router.get('/search', async  (req, res) => {
   // res.send(req.query);
 });
 
+router.get('/add', (req, res) => {
+  res.render('pages/add');  
+});
+
 router.get('/contact', (req, res) => {
   res.render('pages/contact');  
 });
