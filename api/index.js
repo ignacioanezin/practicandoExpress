@@ -19,7 +19,18 @@ const getAuthors = async () => {
     return authors;
 }
 
+const getBookById = async (id) => {
+    // SELECT * FROM book WHERE id = id
+    // findByPk = find by primary key
+    const book = await db.book.findByPk(id, {include: db.author})
+        .then(result => {
+            return result
+        });
+    return book;
+}
+
 module.exports = {
     getAuthors,
-    getBooks
+    getBooks,
+    getBookById
 }

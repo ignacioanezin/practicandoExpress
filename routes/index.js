@@ -10,12 +10,25 @@ router.get('/authors', async (req, res) => {
   res.send(authors);
 });
 
-router.get('/books', async (req, res) => {
+router.get('/', async (req, res) => {
   const books = await api.getBooks();
   console.log(books);
   // res.render('index', { title: 'Express' });
-  res.send(books);
+
+  res.render('index', {
+    title: 'Library',
+    books
+  })
+  // res.send(books);
 });
+
+router.get('/books/:id', async (req, res) => {
+  // console.log(req.params);
+  const book = await api.getBookById(req.params.id);
+
+  res.render('pages/book', { book });
+  res.send(`You good!, the ID  you are looking for is ${req.params.id}`);
+})
 
 router.get('/contact', (req, res) => {
   res.render('pages/contact');  
