@@ -32,6 +32,4 @@ h1 {
 .form__add_process{
   display: grid;
   grid-template-columns: repeat(1, 1fr);
-  align: align-items;
-
 }
