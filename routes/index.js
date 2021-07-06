@@ -40,8 +40,23 @@ router.get('/search', async  (req, res) => {
   // res.send(req.query);
 });
 
-router.get('/add', (req, res) => {
-  res.render('pages/add');  
+router.get('/add', async (req, res) => {
+  //Get the list of authors and pass it to the render
+
+  const authors = await api.getAuthors();
+
+  // console.log(authors);
+
+  res.render('pages/add', { authors });  
+});
+
+router.post('/add_process', async (req, res) => {
+  // Destructured 
+
+  const {title, price, author, cover } = req.body;
+  const book = await api.addBook(title, price, author, cover);
+
+  res.send(book);  
 });
 
 router.get('/contact', (req, res) => {
